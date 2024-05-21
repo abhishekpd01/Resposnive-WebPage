@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Responsive Webpage</title>
+   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+</head>
+<body>
+   <header>
+      <a href="#" class="brand">Sound</a>
+      <div class="menu-btn"></div>
+      <div class="navigation">
+         <div class="navigation-items">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Explore</a>
+            <a href="#">Gallery</a>
+            <a href="#">Contact</a>
+         </div>
+      </div>
+   </header>
+
+   <section class="home">
+
+      <video class="video-slide active" src="assets/pexels-james-cheney-4124198-1920x1080-24fps.mp4" autoplay muted loop></video>
+      <video class="video-slide" src="assets/pexels-marc-mueller-2022395-1920x1080-30fps.mp4" autoplay muted loop></video>
+      <video class="video-slide" src="assets/pexels-tima-miroshnichenko-4916813-1920x1080-60fps.mp4" autoplay muted loop></video>
+
+      <div class="content">
+         <h1>Wonderful.<br><span>Music</span></h1>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam iure accusamus debitis tempora obcaecati assumenda atque quos! Blanditiis explicabo dicta, totam ab, quasi, iusto animi exercitationem perspiciatis eius ipsam dignissimos impedit eum consequuntur quos. Laborum nulla harum, unde dolorem voluptate expedita ipsam. Placeat quam fugit optio dolores dolore accusamus ipsa impedit magnam expedita. Aspernatur iste laboriosam veniam? Praesentium, numquam amet quis aut ipsa asperiores nesciunt, excepturi quidem ex optio modi nemo neque quisquam quaerat ducimus? Animi explicabo quisquam aut dolore?</p>
+         <a href="#">Read More</a>
+      </div>
+      <div class="media-icon">
+         <a href="#"><i class="fab fa-facebook-f"></i></a>
+         <a href="#"><i class="fab fa-instagram"></i></a>
+         <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+      <div class="slider-navigation">
+         <div class="nav-btn active"></div>
+         <div class="nav-btn"></div>
+         <div class="nav-btn"></div>
+      </div>
+   </section>
+
+   <script>
+      // javascript for responsive menu
+      const menuBtn = document.querySelector('.menu-btn');
+      const navigation = document.querySelector('.navigation');
+
+      menuBtn.addEventListener("click", () =>{
+         menuBtn.classList.toggle("active");
+         navigation.classList.toggle("active");
+      });
+
+      // javascript for video navigation slider
+
+      const btns = document.querySelectorAll(".nav-btn");
+      const slides = document.querySelectorAll(".video-slide");
+
+      var sliderNav = function(manual){
+         btns.forEach((btn) => {
+            btn.classList.remove("active");
+         });
+         
+         slides.forEach((slide) => {
+            slide.classList.remove("active");
+         });
+
+         btns[manual].classList.add("active");
+         slides[manual].classList.add("active");
+      }
+
+      btns.forEach((btn, i) => {
+         btn.addEventListener("click", () => {
+            sliderNav(i);
+         });
+      });
+      
+   </script>
+</body>
+</html>
